@@ -14,6 +14,8 @@ class Funcionario(Pessoa):
         self.set_salario(salario)
         
     def set_salario(self, novo_salario):
+        while(novo_salario <= 0):
+            novo_salario = int(input(f'Valor do salário inválido! Insira um valor numérico maior que 0: '))
         self.__salario = novo_salario
         
     def get_salario(self):
@@ -38,7 +40,7 @@ class Departamento:
     def listar_funcionarios(self):
         print('Listando funcionários:')
         for funcionario in self.listaFuncionarios:
-            print(f'Nome: {funcionario.nome} \nSalário anual: {funcionario.calcular_salario_anual()}')
+            print(f'Nome: {funcionario.nome} \nSalário anual: {funcionario.calcular_salario_anual():.2f}')
             
 funcionario1 = Funcionario('Alberto', 44, 7000)
 funcionario2 = Funcionario('Maria', 22, 4000)
@@ -48,4 +50,4 @@ departamento1 = Departamento()
 departamento1.adicionar_funcionario(funcionario1, funcionario2, funcionario3)
 departamento1.listar_funcionarios()
 
-print(f'Gasto total com salários anualmente: {departamento1.calcular_total_salarios()}')
+print(f'Gasto total com salários anualmente: {departamento1.calcular_total_salarios():.2f}')
