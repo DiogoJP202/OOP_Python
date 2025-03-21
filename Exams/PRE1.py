@@ -4,7 +4,7 @@ class Pessoa:
         self.set_idade(idade)
         
     def set_idade(self, nova_idade):
-        while(nova_idade < 18):
+        while nova_idade < 18:
             nova_idade = int(input(f'Idade inválida. Insira uma idade que seja maior que 17: '))
         self._idade = nova_idade
         
@@ -14,7 +14,7 @@ class Funcionario(Pessoa):
         self.set_salario(salario)
         
     def set_salario(self, novo_salario):
-        while(novo_salario <= 0):
+        while novo_salario <= 0:
             novo_salario = int(input(f'Valor do salário inválido! Insira um valor numérico maior que 0: '))
         self.__salario = novo_salario
         
