@@ -26,20 +26,20 @@ class Funcionario(Pessoa):
         
 class Departamento:
     def __init__(self):
-        self.listaFuncionarios = []
+        self._listaFuncionarios = []
     
-    def adicionar_funcionario(self, *funcionarios):
-        self.listaFuncionarios.extend(funcionarios)
+    def adicionar_funcionarios(self, *funcionarios):
+        self._listaFuncionarios.extend(funcionarios)
     
     def calcular_total_salarios(self):
         total = 0
-        for funcionario in self.listaFuncionarios:
+        for funcionario in self._listaFuncionarios:
             total += funcionario.calcular_salario_anual()
         return total
         
     def listar_funcionarios(self):
         print('Listando funcionários:')
-        for funcionario in self.listaFuncionarios:
+        for funcionario in self._listaFuncionarios:
             print(f'Nome: {funcionario.nome} \nSalário anual: {funcionario.calcular_salario_anual():.2f}')
             
 funcionario1 = Funcionario('Alberto', 44, 7000)
@@ -47,7 +47,7 @@ funcionario2 = Funcionario('Maria', 22, 4000)
 funcionario3 = Funcionario('Alex', 13, 2400)
 
 departamento1 = Departamento()
-departamento1.adicionar_funcionario(funcionario1, funcionario2, funcionario3)
+departamento1.adicionar_funcionarios(funcionario1, funcionario2, funcionario3)
 departamento1.listar_funcionarios()
 
 print(f'Gasto total com salários anualmente: {departamento1.calcular_total_salarios():.2f}')
