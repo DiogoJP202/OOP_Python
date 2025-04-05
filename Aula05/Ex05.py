@@ -5,6 +5,16 @@
 # • No exemplo de uso, crie uma mensagem e use o correio para enviá-la.
 
 class Mensagem:
-    
-
+    def __init__(self, texto):
+        self.texto = texto
+        
 class Correio:
+    def __init__(self, mensagem):
+        self.mensagem = mensagem
+
+    def enviar(self):
+        print(self.mensagem.texto)
+
+mensagem = Mensagem("Hello, world!")
+correio = Correio(mensagem)
+correio.enviar()
